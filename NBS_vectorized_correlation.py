@@ -90,7 +90,7 @@ def nbs_bct_corr_z(corr_arr, thresh, y_vec, k=1000, extent=True, verbose=False):
         # check correlation X -> M (Sobel's test)
         r, _ = stats.pearsonr(x, y)
         z = 0.5 * np.log((1 + r)/(1 - r))
-        return np.asscalar(z)
+        return z.item()
 
     ix, jx, nx = corr_arr.shape
     ny, = y_vec.shape
